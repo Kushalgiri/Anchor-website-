@@ -1,0 +1,7 @@
+.err_msg{
+    font-style: italic;
+    text-align: left;
+    color: red;
+    font-size: small;
+    margin-bottom: unset;
+}
