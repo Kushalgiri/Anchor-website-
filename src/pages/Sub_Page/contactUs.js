@@ -5,6 +5,7 @@ import {CustomButton} from "../../components/customButton";
 import './contactForm.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SubContact from "../../components/SubContact";
 
 
 function ContactUs() {
@@ -108,14 +109,12 @@ function ContactUs() {
 
 
     return (
-        <div id="contact">
+        <div id="contact" style={{paddingTop:'103px'}}>
             <div className="container">
                 <h1>Contact Us</h1>
                 <div className="row qForm">
                     <div className="col-md-7" style={{padding: "43px 70px 53px 36px"}}>
-                        <p>Hey there !</p>
-                        <p>kkkk knld be more than happy to be part of your dream project</p>
-                        <p>If you have any query your can send me an email or catch us on following</p>
+                       <SubContact/>
                     </div>
                     <div className="col-md-5 ">
                         <form className="p-4" onSubmit={handelSubmit}>

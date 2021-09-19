@@ -1,0 +1,37 @@
+/*.counter{*/
+/*    background: #171724;*/
+/*    padding: 100px 0 115px;*/
+/*    color: #fff;*/
+/*}*/
+
+.c-cnt{
+    text-align: center;
+    min-height: 152px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    /*display: flex;*/
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: #38a525;
+    width: 245px;
+    margin: 0 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+
+}
+
+.count{
+    font-size: 46px;
+}
+
+.count:hover{
+    background: white;
+}
+
+.logo{
+    display: block;
+    font-size: 48px;
+}

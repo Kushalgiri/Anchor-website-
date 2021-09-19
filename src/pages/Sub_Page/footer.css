@@ -1,8 +1,4 @@
-.f-outer{
-    background: #171724;
-    padding: 100px 0 115px;
-    color: #fff;
-}
+
 
 .f-bottom{
     background: #0c0c17;
@@ -13,9 +9,12 @@
 
 .icon>ul{
     list-style: none;
-    display: flex;
-    justify-content: flex-start;
+    text-align: left;
     align-items: center;
+}
+.icon>ul>li{
+    padding-right: 10px;
+    display: inline-block;
 }
 
 .f-par>p{

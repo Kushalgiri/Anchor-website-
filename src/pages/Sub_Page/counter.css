@@ -1,0 +1,8 @@
+.cnt-main{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.c-content{
+    padding: 83px 0px 83px 0px;
+}
