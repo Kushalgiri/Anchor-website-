@@ -1,8 +1,10 @@
 .cnt-main{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
 .c-content{
     padding: 83px 0px 83px 0px;
 }
+

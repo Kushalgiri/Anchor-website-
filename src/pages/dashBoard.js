@@ -5,7 +5,8 @@ import AboutUs from "./Sub_Page/aboutus";
 import Counter from "./Sub_Page/Counter";
 import Footer from "./Sub_Page/footer";
 import ContactUs from "./Sub_Page/contactUs";
-import NavBar from "../components/Navbar/NavBar";
+import NavBar from "../components/NavBar";
+import Services from "./Sub_Page/Services";
 
 const DashBoard = () => {
     return(
@@ -15,8 +16,8 @@ const DashBoard = () => {
             <MainBody/>
             <AboutUs/>
             <Counter/>
-            {/*<Counter/>*/}
             <ContactUs/>
+            <Services/>
             <Footer/>
         </div>
     )

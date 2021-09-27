@@ -7,17 +7,9 @@
     padding: 20px 0;
 }
 
-.icon>ul{
-    list-style: none;
-    text-align: left;
-    align-items: center;
-}
-.icon>ul>li{
-    padding-right: 10px;
-    display: inline-block;
-}
+
 
 .f-par>p{
     font-size: 11px;
-    text-align: right;
+    text-align: center;
 }

@@ -1,7 +1,6 @@
 .custom-button{
     background: #38a525;
     border-radius: 30px;
-    font-family: Poppins;
     font-size: 16px;
     font-weight: 600;
     min-width: 190px;
@@ -9,10 +8,12 @@
     display: inline-block;
     text-align: center;
     padding: 10px;
+    /*padding: 5px 38px;*/
     transition: all ease-in-out 0.5s;
     text-transform: uppercase;
     border: #38a525 solid 1px;
     text-decoration: none;
+    margin-top: 27px;
 }
 
 .custom-button:hover{
@@ -20,4 +21,18 @@
     transition: all ease-in-out 0.5s;
     background: #151414e8;
     color: #ffffff;
+}
+
+.custom-button:disabled{
+    background-color: #9a9a9a;
+    cursor: not-allowed;
+}
+
+
+
+
+
+.bTun Button:hover{
+    color: rgba(213, 215, 224, 0.88);
+    transition: all ease-in-out;
 }

@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route ,Switch} from "react-router-dom";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DashBoard from "./pages/dashBoard";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return (

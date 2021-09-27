@@ -1,6 +1,6 @@
 import React from 'react';
-import NavBar from '../../components/Navbar/NavBar';
-import "../../components/Navbar/navbar.css";
+import NavBar from '../../components/NavBar';
+import "../../components/navbar.css";
 
 function Header() {
     return (

@@ -1,0 +1,39 @@
+.serv-main{
+    background-color:rgb(23, 23, 36);;
+    padding-top: 40px;
+}
+
+.title{
+color: white;
+}
+.service>img{
+    height: 58px;
+    width: auto;
+}
+
+.service-outer{
+    padding: 29px 143px 12px;
+}
+.service>h4{
+    font-weight: 500;
+    font-size: inherit;
+    padding: 13px;
+    color: white;
+}
+
+/*.service-container{*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+/*@media only screen and(max-width: 424px) {*/
+/*    */
+/*    */
+/*}*/
+
+@media only screen and (max-width: 424px){
+    .service-outer{
+        padding: 0px 0px 0px 0px;
+    }
+
+
+}

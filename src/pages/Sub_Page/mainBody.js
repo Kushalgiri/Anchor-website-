@@ -1,8 +1,6 @@
 import React from 'react';
 import './main-Body.css';
 import {CustomButton} from "../../components/customButton";
-import NavBar from "../../components/Navbar/NavBar";
-
 
 function MainBody() {
     return (
@@ -14,7 +12,10 @@ function MainBody() {
                         <span>partner for digital </span><br/>
                         <span>transformation</span>
                     </h2>
-                    <CustomButton name="Show more"/>
+                    <div className="main-btn">
+                        <CustomButton  name="Show more" classname="cus-btn "/>
+                    </div>
+
                 </div>
 
 

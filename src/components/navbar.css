@@ -1,0 +1,150 @@
+/*.wrapper{*/
+/*    position: relative;*/
+/*}*/
+
+
+/*.wrapper:before{*/
+/*    content: "";*/
+/*    background: rgba(0, 0, 0, 0.57);*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    min-height: 100%;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    z-index: -1;*/
+/*}*/
+
+.t-nav {
+    /*padding-left: 63px;*/
+    /*padding-top: 11px;*/
+    position: sticky;
+    background: transparent;
+    /*background-color: #00640d;*/
+    height: 80px;
+    display: block;
+    align-items: center;
+    color: #ffffff;
+    /*color: #ffffff;*/
+    top: 0;
+    font-size: 1.2rem;
+    transition: 0.5ms all ease-in-out;
+    z-index: 2;
+}
+
+.t-nav.active{
+    background: #00640d;
+    color: white;
+    height: 87px;
+    transition: 0.5ms all ease-in-out;
+}
+
+.navbar-brand{
+    text-align: left;
+    margin-right: 0px !important;
+}
+.navbar-brand img{
+    max-width: 100%;
+}
+
+.navbar-nav{
+    flex-direction:column !important;
+}
+
+
+.nav-color{
+    color: #ffff !important;
+    text-decoration: none;
+}
+
+.lst{
+    padding-top:10px
+}
+
+.rightSide button{
+    display: none;
+}
+
+.rightSide .rightBtn #hidden{
+display: flex;
+
+    /*flex-direction: column;*/
+}
+
+lst>ul{
+    margin-top: unset !important;
+}
+
+.lst>ul>li{
+    display: inline-block;
+    margin-right: 53px;
+    padding-top: 2px;
+    text-decoration: none;
+    list-style: none;
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.5s all ease-in-out;
+}
+
+/*.active{*/
+/*    text-decoration: none;*/
+/*    color: white;*/
+/*    border-bottom-color: green;*/
+/*    border-bottom-style: solid;*/
+/*    border-bottom-width: 4px;*/
+/*      padding: 10px;*/
+/*}*/
+
+.lst>ul>li:hover{
+    color: #151414e8;
+    cursor: pointer;
+}
+.navbar-nav{
+    flex-direction:column !important;
+}
+.nav-color{
+    color: #1a1818 !important;
+    text-decoration: none;
+}
+
+
+
+@media only screen and (max-width: 1213px) {
+    /*.container{*/
+    /*    max-width: 100%;*/
+    /*}*/
+    .lst{
+        display: none;
+    }
+    .rightSide button{
+        display: flex;
+        float: right;
+    }
+
+    .rightSide .rightBtn #hidden{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        left: 0px;
+        top: 80px;
+        width: 100%;
+        height: auto;
+        background-color: #1a1818db;
+    }
+
+    .rightSide .rightBtn #hidden ul{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .rightSide .rightBtn #hidden ul li{
+        padding-bottom: 4px;
+    }
+}
+
+@media only screen and (max-width: 426px){
+    .navbar-brand img{
+        width: 200px;
+    }
+}

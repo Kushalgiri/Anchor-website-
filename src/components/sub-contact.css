@@ -1,5 +1,9 @@
 .f-outer{
     text-align: left;
+    padding: 54px 10px 36px 10px;
+    background-color: #cccccc36;
+    color: #373333;
+    box-shadow: 0px 0px 17px 2px #0000001c;
 }
 
 .f-outer>h3{
@@ -7,3 +11,14 @@
     font-size: 18px;
 }
 
+.icon>ul{
+    list-style: none;
+    text-align: left;
+    align-items: center;
+}
+.icon>ul>li{
+    padding-right: 10px;
+    display: inline-block;
+    font-size: 33px;
+
+}

@@ -1,188 +1,177 @@
 import React, {useState} from 'react';
-import emailjs from 'emailjs-com';
-import {CustomButton} from "../../components/customButton";
-// import Validation from "../../components/validation";
 import './contactForm.css';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import {ToastContainer,toast} from 'react-toastify';
+import emailjs from 'emailjs-com';
 import SubContact from "../../components/SubContact";
+import Captcha from "../../components/Captcha";
 
 
 function ContactUs() {
+    const [errors, setErrors] = useState({});
+    const [isDisabled, setIsDisabled] = useState(true);
+    const [isCaptchaVerified, setIsCaptchVerified] = useState(false);
+
     const [data, setData] = useState({
         fullName: "",
         email: "",
-        subject:"",
+        subject: "",
         phone: "",
         cname: "",
         detail: "",
     })
 
 
-    const [loading , setLoading]=useState(false);
-    const [errors, setErrors] = useState({});
-
-    const handelChange = (event) => {
+    const handleChange = (event) => {
         const {name, value} = event.target;
         setData((prevState) => ({
             ...prevState,
             [name]: value
         }));
+        if (data.fullName !== "" && data.cname !== "" && data.email !== "" && data.detail !== "" && data.subject && data.phone !== "") {
+            setIsDisabled(false);
+        }
+        if (name === "email") {
+            (!validateEmail(data.email))?
+                setErrors(prevState => ({
+                    ...prevState,
+                    emailError: "Please enter a valid email."
+                })):
+                setErrors(prevState => ({
+                    ...prevState,
+                    emailError: ""
+                }))
+            console.log(data.email)
+            setIsDisabled(true);
+
+        }
+
+        if (name === "phone") {
+            data.phone.length !== 9?
+                setErrors(prevState => ({
+                    ...prevState,
+                    phoneError: "Phone number must be 10 digit."
+                })):
+                setErrors(prevState => ({
+                    ...prevState,
+                    phoneError: ""
+                }));
+            setIsDisabled(true);
+
+        }
     }
 
-    const Validation =(values)=>{
-
-        // let error={};
-
-        if(values.fullName === ""){
-            setErrors({
-                ...errors,
-                fullName: "please enter "
-            })
-        }
-
-        if(values.email === ""){
-           setErrors({
-                ...errors,
-                email: "please enter "
-            })
-
-        }else if(!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(values.email)){
-            setErrors({
-                ...errors,
-                email: "please enter "
-            })
-        }
-
-        if(values.phone === ""){
-            setErrors({
-                ...errors,
-                phone: "please enter "
-            })
-        }
-
-        if(values.cname === "") {
-            setErrors({
-                ...errors,
-                cname: "please enter "
-            })
-        }
-
-
-        if(values.detail === ""){
-            setErrors({
-                ...errors,
-                detail: "please enter "
-            })
-        }
-
-
+    function validateEmail(email) {
+        const emailRegex = /\S+@\S+\.\S+/
+        return emailRegex.test(String(email).toLowerCase());
     }
 
 
-
-    const handelSubmit = async event => {
-        console.log(data)
+    const handleSubmit = async event => {
         event.preventDefault();
-        await Validation(data);
-        console.log("errors ",errors)
-
-        if(errors && Object.keys(errors).length === 0) {
-            setLoading(true);
+        console.log("ADA", errors)
+        if (!isDisabled) {
+            setIsDisabled(true);
             await emailjs.sendForm('service_6m72jaa', 'template_44j49jl', event.target, 'user_vBZhzTkAilfAhHXMrLrY0')
                 .then((result) => {
                     console.log(result.text);
-                    toast("Email sent Sucessfully");
-                    setLoading(false);
+                    toast.success("Email sent Successfully");
+                    setIsDisabled(false);
 
                 }, (error) => {
                     console.log(error.text);
-                    toast("Error during sending Email");
-                    setLoading(false);
+                    toast.error("Error during sending Email");
+                    setIsDisabled(false);
 
                 });
         }
-        // event.target.reset();
-        console.log(errors);
     }
 
 
-
     return (
-        <div id="contact" style={{paddingTop:'103px'}}>
-            <div className="container">
-                <h1>Contact Us</h1>
-                <div className="row qForm">
-                    <div className="col-md-7" style={{padding: "43px 70px 53px 36px"}}>
-                       <SubContact/>
+        <div id="contact" className="cont-wall">
+            <div className="container " style={{padding:'103px 0px'}}>
+                <h1 style={{fontSize:'48px', fontWeight:'700'}}>Contact Us</h1>
+                <hr/>
+                <div className="row">
+                    <div className="col-md-7 col-sm-12" style={{padding: "43px 70px 53px 36px"}}>
+                        <SubContact/>
                     </div>
-                    <div className="col-md-5 ">
-                        <form className="p-4" onSubmit={handelSubmit}>
+                    <div className="col-md-5 col-sm-12">
+                        <form className="p-4 " onSubmit={e => handleSubmit(e)} autoComplete="off">
                             <div>
-                                <label>Full Name</label>
+                                <label className="cform">Full Name</label>
                                 <input type="text"
                                        value={data.fullName}
                                        placeholder="Enter your name"
                                        name="fullName"
                                        className="form-control"
-                                       onChange={handelChange}
+                                       onChange={handleChange}
+                                       // autoComplete="off"
                                 />
-                                {errors && <p className="err_msg" >{errors.fullName}</p> }
+                                {errors && <p className="err_msg">{errors.fullName}</p>}
                             </div>
                             <div>
-                                <label>Email</label>
+                                <label className="cform">Email</label>
                                 <input type="text"
                                        placeholder="Email"
                                        className="form-control"
                                        name="email"
-                                       onChange={handelChange}
+                                       onChange={handleChange}
+                                       // autocomplete="off"
                                 />
-                                {errors && <p className="err_msg">{errors.email}</p>}
+                                {errors && <p className="err_msg">{errors.emailError}</p>}
                             </div>
                             <div>
-                                <label>Subject</label>
+                                <label className="cform">Subject</label>
                                 <input type="text"
                                        value={data.subject}
                                        placeholder="Enter subject"
                                        name="subject"
                                        className="form-control"
-                                       onChange={handelChange}
+                                       onChange={handleChange}
+                                       // autocomplete="off"
                                 />
-                                {errors && <p className="err_msg" >{errors.fullName}</p> }
+                                {errors && <p className="err_msg">{errors.fullName}</p>}
                             </div>
                             <div>
-                                <label>Phone Number</label>
-                                <input type="tel"
+                                <label className="cform">Phone Number</label>
+                                <input type="number"
                                        placeholder="Phone Number"
                                        className="form-control"
                                        name="phone"
-                                       value={data.value} onChange={handelChange}
+                                       value={data.phone} onChange={handleChange}
+                                       // autocomplete="off"
                                 />
-                                {errors && <p className="err_msg">{errors.phone}</p>}
+                                {errors && <p className="err_msg">{errors.phoneError}</p>}
                             </div>
                             <div>
-                                <label>Company name</label>
+                                <label className="cform">Company name</label>
                                 <input type="text"
                                        placeholder="Company Name"
                                        className="form-control"
                                        name="cname"
-                                       value={data.cname} onChange={handelChange}
+                                       value={data.cname}
+                                       onChange={handleChange}
+                                       // autocomplete="off"
                                 />
                                 {errors && <p className="err_msg">{errors.cname}</p>}
                             </div>
                             <div>
-                                <label>Detail for project</label>
+                                <label className="cform">Detail for project</label>
                                 <textarea placeholder="Message"
                                           rows="3"
                                           className="form-control txt-area"
                                           name="detail"
                                           value={data.detail}
-                                          onChange={handelChange}
+                                          onChange={handleChange}
+                                          // autocomplete="off"
                                 />
-                                {errors && <p className="err_msg">{errors.detail}</p> }
+                                {errors && <p className="err_msg">{errors.detail}</p>}
                             </div>
-                            <button type="submit" className="bTun form" >Send</button>
-                            {/*<CustomButton name="Submit" loading={loading} padding="20"/>*/}
+                           <Captcha setCaptch={{setIsCaptchVerified}}/>
+
+                            <button type="submit" disabled={isDisabled}  className="custom-button">Send</button>
+                            {/*<CustomButton type="submit" disabled={isDisabled} padding="20"/>*/}
                         </form>
                         <ToastContainer/>
                     </div>
@@ -190,7 +179,7 @@ function ContactUs() {
             </div>
 
         </div>
-    )
+    );
 }
 
 export default ContactUs;

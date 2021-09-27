@@ -1,5 +1,21 @@
 .d-img>img{
-    height: 328px;
-    width: 338px;
-    border-radius: 176px;
+    height: 360px;
+    width: 82%;
+    object-fit: cover;
+}
+
+/*.cnt{*/
+/*    text-align: left;*/
+/*    width: 50%;*/
+/*    padding: 0px 0px 0px 0px !important;*/
+/*}*/
+
+.cnt>p{
+    text-align: justify;
+}
+
+@media only screen and (max-width: 768px){
+    .cnt>p{
+        text-align: center;
+    }
 }
