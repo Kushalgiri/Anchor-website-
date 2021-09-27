@@ -11,7 +11,7 @@ import img7 from '../../assets/services/webhositing.png';
 const Services = () => {
     return (
         <div className="serv-main" id="service">
-            <div className="title">
+            <div className="title pb-3">
                 <h2 style={{paddingBottom:'6px',fontSize:'48px', fontWeight:'700'}}>Services</h2>
             </div>
             <div className="container service-container">

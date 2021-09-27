@@ -24,13 +24,17 @@ function SubContact(props) {
                     <div className="icon">
                         <ul>
                             <li>
-                                <FaFacebook/>
+                                <a href="https://www.facebook.com/anchorpoints"><FaFacebook/></a>
                             </li>
                             <li>
-                                <AiFillTwitterCircle/>
+                                <a href="https://twitter.com/anchorpointsktm"><AiFillTwitterCircle/></a>
+
                             </li>
-                            <li><AiFillInstagram/></li>
-                            <li><AiFillLinkedin/></li>
+                            <li>
+                                <a href="https://twitter.com/anchorpointsktm"><AiFillInstagram/></a></li>
+                            <li>
+                                <a href="https://twitter.com/anchorpointsktm"><AiFillLinkedin/></a>
+                                </li>
                         </ul>
                     </div>
                 </div>

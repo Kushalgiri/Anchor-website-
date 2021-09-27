@@ -75,7 +75,16 @@ function ContactUs() {
                 .then((result) => {
                     console.log(result.text);
                     toast.success("Email sent Successfully");
-                    setIsDisabled(false);
+                    setIsDisabled(true);
+                    event.target.reset();
+                    setData({
+                        fullName: "",
+                        email: "",
+                        subject: "",
+                        phone: "",
+                        cname: "",
+                        detail: "",
+                    })
 
                 }, (error) => {
                     console.log(error.text);

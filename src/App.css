@@ -82,11 +82,11 @@ input[type=number] {
 
 /*------------- RECAPTCHA ---------------*/
 .captcha{
-  padding-left: 51px;
-  padding-top:10px;
+  padding-left: 93px;
+  padding-top: 10px;
 }
 
-@media only screen and (max-width: 426px){
+@media only screen and (max-width: 1085px){
   .captcha{
     padding-left: 8px;
   }

@@ -7,6 +7,7 @@ import Footer from "./Sub_Page/footer";
 import ContactUs from "./Sub_Page/contactUs";
 import NavBar from "../components/NavBar";
 import Services from "./Sub_Page/Services";
+// import ServiceCtnt from "../components/ServiceCtnt";
 
 const DashBoard = () => {
     return(
